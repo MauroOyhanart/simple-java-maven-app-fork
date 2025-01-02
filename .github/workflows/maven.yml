@@ -25,6 +25,7 @@ jobs:
         wget -O apache-maven-3.9.9-bin.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
         tar xzvf apache-maven-3.9.9-bin.tar.gz
         echo 'M2_HOME="$(pwd)/apache-maven-3.9.9"' >> $GITHUB_ENV
+        export M2_HOME="$(pwd)/apache-maven-3.9.9"
         ls
         echo $M2_HOME
         export PATH=$M2_HOME/bin:$PATH
