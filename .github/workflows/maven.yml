@@ -26,8 +26,7 @@ jobs:
         tar xzvf apache-maven-3.9.9-bin.tar.gz
         echo 'M2_HOME="$(pwd)/apache-maven-3.9.9"' >> $GITHUB_ENV
         export M2_HOME="$(pwd)/apache-maven-3.9.9"
-        ls
-        echo "m2 home: $M2_HOME"
+        pwd
         export PATH=$M2_HOME/bin:$PATH
         echo "path: $PATH"
     - uses: actions/checkout@v4
@@ -39,8 +38,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-        echo $PATH
-        env
+        export PATH=/home/runner/work/simple-java-maven-app-fork/simple-java-maven-app-fork/apache-maven-3.9.9/bin:$PATH
+        echo "path: $PATH"
         mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
